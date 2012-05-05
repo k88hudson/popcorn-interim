@@ -97,6 +97,7 @@ document.addEventListener( "DOMContentLoaded", function( e ){
         media.addTrack( "Track" + Math.random() );
       }
       media.onReady( start );
+
     } //ready 
   }); //Butter
 }, false );
