@@ -1,7 +1,7 @@
 {
   "server" : {
     "bindIP" : "50.116.52.222",
-    "bindPort" : "8888"
+    "bindPort" : "80"
   },
   "logger" : {
     "format" : "dev"
@@ -13,18 +13,18 @@
     "wwwRoot": "public",
     "templates": "templates",
     "publish": "public/published",
-    "publishPrefix": "http://50.116.52.222:8888/published"
+    "publishPrefix": "http://50.116.52.222:80/published"
   },
   "environment": {
     "mode": "production"
   },
   "templates": {
     "pop": {
-      "template.js": "http://50.116.52.222:8888/templates/pop/template.js",
+      "template.js": "http://50.116.52.222:80/templates/pop/template.js",
       "plugins/popcorn.pop.js": "http://50.116.52.222:8888/templates/pop/plugins/popcorn.pop.js",
       "plugins/popcorn.words.js": "http://50.116.52.222:8888/templates/pop/plugins/popcorn.words.js",
-      "images/": "http://50.116.52.222:8888/templates/pop/images/",
-      "sounds/": "http://50.116.52.222:8888/templates/pop/sounds/"
+      "images/": "http://50.116.52.222:80/templates/pop/images/",
+      "sounds/": "http://50.116.52.222:80/templates/pop/sounds/"
     }
   }
 }
