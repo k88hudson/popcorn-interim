@@ -181,8 +181,8 @@ document.addEventListener( "DOMContentLoaded", function( e ){
         //Wraps events in a canplayall event listener for export
         var wrapEvents = "canplayall";
         media.popcornScripts = { };
-        media.popcornScripts.beforeEvents = 'popcorn.on( "'+wrapEvents+'", function( e ) { ';
-        media.popcornScripts.afterEvents = '});'
+        media.popcornScripts.beforeEvents = 'popcorn.on( "' + wrapEvents + '", evts );\n' + 'function evts() { ';
+        media.popcornScripts.afterEvents = '\npopcorn.off( "' + wrapEvents + '", evts ); \n}';
 
         track = media.addTrack( "Questions" );
         media.addTrack( "Answers" );
@@ -203,10 +203,12 @@ document.addEventListener( "DOMContentLoaded", function( e ){
       start();
     }
     else{
-      media.addEventListener('canplay', function(e){
-        console.log("canplay")
+      media.addEventListener('canplay', canplayStart );
+
+      function canplayStart() {
         start();
-      }, false);
+        media.removeEventListener( 'canplay', canplayStart );
+      }
 
     }
   }
